@@ -1,0 +1,36 @@
+<mat-card class="w-100">
+  <mat-card-content>
+    <h2 class="mb-4">Detalles del Espacio</h2>
+
+    <div *ngIf="espacio">
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Nombre</mat-label>
+        <input matInput [value]="espacio.name" readonly>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput [value]="espacio.description" rows="4" readonly></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Capacidad</mat-label>
+        <input matInput [value]="espacio.capacity" readonly>
+      </mat-form-field>
+
+      <div class="text-end mt-4">
+        <button mat-raised-button color="primary" class="me-3 mb-3" (click)="reservarEspacio()">
+          <mat-icon class="me-2">event</mat-icon>
+          <span>Reservar Espacio</span>
+        </button>
+        
+        <button mat-raised-button class="mb-3" (click)="volver()">
+          <mat-icon class="me-2">arrow_back</mat-icon>
+          <span>Volver</span>
+        </button>
+      </div>
+    </div>
+
+    <mat-spinner *ngIf="!espacio" diameter="50" class="mx-auto"></mat-spinner>
+  </mat-card-content>
+</mat-card>

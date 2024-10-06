@@ -1,0 +1,32 @@
+<mat-card class="w-100">
+  <mat-card-content>
+    <h2 class="mb-4">Reservar Espacio</h2>
+    
+    <form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Nombre del evento</mat-label>
+        <input matInput formControlName="description" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Fecha y hora de inicio</mat-label>
+        <input matInput [ngxMatDatetimePicker]="pickerStart" formControlName="start_time" required>
+        <ngx-mat-datepicker-toggle matSuffix [for]="pickerStart"></ngx-mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #pickerStart></ngx-mat-datetime-picker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Fecha y hora de fin</mat-label>
+        <input matInput [ngxMatDatetimePicker]="pickerEnd" formControlName="end_time" required>
+        <ngx-mat-datepicker-toggle matSuffix [for]="pickerEnd"></ngx-mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #pickerEnd></ngx-mat-datetime-picker>
+      </mat-form-field>
+
+      <div class="text-end mt-4">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!reservaForm.valid">
+          Reservar
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

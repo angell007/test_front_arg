@@ -1,0 +1,31 @@
+<mat-card class="w-100">
+  <mat-card-content>
+    <h2 class="mb-4">{{ esEdicion ? 'Editar' : 'Crear' }} Espacio</h2>
+
+    <form [formGroup]="espacioForm" (ngSubmit)="guardarEspacio()">
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Nombre</mat-label>
+        <input matInput id="name" formControlName="name" required>
+        <mat-error *ngIf="espacioForm.get('name')?.hasError('required')">El nombre es obligatorio</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput id="description" formControlName="description" rows="4"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Capacidad</mat-label>
+        <input matInput type="number" id="capacity" formControlName="capacity" required>
+        <mat-error *ngIf="espacioForm.get('capacity')?.hasError('required')">La capacidad es obligatoria</mat-error>
+        <mat-error *ngIf="espacioForm.get('capacity')?.hasError('min')">La capacidad debe ser mayor que 0</mat-error>
+      </mat-form-field>
+
+      <div class="text-end">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!espacioForm.valid">
+          <mat-icon>save</mat-icon> {{ esEdicion ? 'Actualizar' : 'Crear' }} Espacio
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

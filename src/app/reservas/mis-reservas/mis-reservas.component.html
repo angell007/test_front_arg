@@ -1,0 +1,50 @@
+<mat-card class="w-100">
+  <mat-card-content>
+    <h4 class="mb-4">Mis Reservas</h4>
+
+    <div *ngIf="dataSource.length > 0; else noData">
+      <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" class="text-nowrap w-100">
+
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="space">
+            <th mat-header-cell *matHeaderCellDef> Espacio </th>
+            <td mat-cell *matCellDef="let element"> {{element.space.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="start_time">
+            <th mat-header-cell *matHeaderCellDef> Fecha de inicio </th>
+            <td mat-cell *matCellDef="let element"> {{element.start_time | date:'dd/MM/yyyy HH:mm'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="end_time">
+            <th mat-header-cell *matHeaderCellDef> Fecha de fin </th>
+            <td mat-cell *matCellDef="let element"> {{element.end_time | date:'dd/MM/yyyy HH:mm'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Descripción </th>
+            <td mat-cell *matCellDef="let element"> {{element.description || 'Sin descripción'}} </td>
+          </ng-container>
+
+          
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+
+    <ng-template #noData>
+      <mat-card class="text-center p-5">
+        <mat-icon color="warn" class="large-icon mb-3">warning</mat-icon>
+        <h2>No tienes reservas</h2>
+        <p>Actualmente no tienes reservas registradas. Puedes crear una nueva reserva haciendo clic en el botón "Crear Reserva".</p>
+      </mat-card>
+    </ng-template>
+  </mat-card-content>
+</mat-card>
