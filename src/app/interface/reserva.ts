@@ -1,6 +1,5 @@
 import { Espacio } from "./espacio";
-// import { Usuario } from "./usuario";
-
+import { User } from "../models/users.model";
 export interface Reserva {
   id: number;
   nombreEvento: string;
@@ -9,5 +8,5 @@ export interface Reserva {
   espacioId: number;
   espacio: Espacio;
   usuarioId: number;
-  // usuario: Usuario;
+  usuario: User;
 }

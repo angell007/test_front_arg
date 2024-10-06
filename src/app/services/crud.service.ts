@@ -29,7 +29,7 @@ export class CrudService {
   }
 
   index(filtros: any = null): Observable<any> {
-    return this.client.get(this._rutaBase + '/' + this.model);
+    return this.client.get(this._rutaBase + '/' + this.model, { params: filtros });
   }
 
   delete(id: number): Observable<any> {

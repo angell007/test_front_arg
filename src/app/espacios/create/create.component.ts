@@ -25,7 +25,8 @@ export class CreateComponent implements OnInit {
     this.espacioForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
-      capacity: ['', [Validators.required, Validators.min(1)]]
+      capacity: ['', [Validators.required, Validators.min(1)]],
+      type: ['', Validators.required]
     });
   }
 

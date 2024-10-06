@@ -15,6 +15,16 @@
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Tipo</mat-label>
+        <mat-select id="type" formControlName="type" required>
+          <mat-option value="desk">Escritorio</mat-option>
+          <mat-option value="meeting_room">Sala de reuniones</mat-option>
+          <mat-option value="room">Habitación</mat-option>
+        </mat-select>
+        <mat-error *ngIf="espacioForm.get('type')?.hasError('required')">El tipo es obligatorio</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-100 mb-3">
         <mat-label>Capacidad</mat-label>
         <input matInput type="number" id="capacity" formControlName="capacity" required>
         <mat-error *ngIf="espacioForm.get('capacity')?.hasError('required')">La capacidad es obligatoria</mat-error>
