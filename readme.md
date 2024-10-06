@@ -1,4 +1,4 @@
-# Flexy Admin Angular Lite
+# Test Front Arg
 
 Este es un proyecto de administración basado en Angular.
 
@@ -13,12 +13,12 @@ Asegúrate de tener instalado lo siguiente en tu sistema:
 
 1. Clona este repositorio:
    ```
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/angell007/test_front_arg.git
    ```
 
 2. Navega al directorio del proyecto:
    ```
-   cd flexy-admin-angular-lite
+   cd test_front_arg
    ```
 
 3. Instala las dependencias:
